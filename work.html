@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>LT Media — Case Studies</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html#top" aria-label="LT Media home">
+          <span class="brand-fallback" aria-hidden="true">LT</span>
+          <img class="brand-image" src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/7cc4d.png" alt="LT Media" />
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#process">Process</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="button button-primary header-cta" type="button" data-open-modal>Book a Call</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="case-hero section-shell">
+        <div class="container reveal">
+          <p class="eyebrow">Case Studies</p>
+          <h1>See the Difference</h1>
+          <p>Real results from real redesigns. Side-by-side proof that great design drives business.</p>
+        </div>
+      </section>
+
+      <section class="case-studies section-shell">
+        <div class="container case-list">
+          <article class="case-study reveal">
+            <div class="comparison">
+              <figure><figcaption>Before</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/c1c68.png" alt="Meridian Finance website before redesign" /></figure>
+              <figure><figcaption class="after-label">After</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/65b1e.png" alt="Meridian Finance website after redesign" /></figure>
+            </div>
+            <div class="case-meta"><div><h2>Meridian Finance</h2><span>•</span><p>Financial Services</p></div><p><strong>Result:</strong> Complete visual overhaul — 40% increase in lead generation</p></div>
+          </article>
+
+          <article class="case-study reveal">
+            <div class="comparison">
+              <figure><figcaption>Before</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/6b4df.png" alt="Solace Wellness website before redesign" /></figure>
+              <figure><figcaption class="after-label">After</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/9189a.png" alt="Solace Wellness website after redesign" /></figure>
+            </div>
+            <div class="case-meta"><div><h2>Solace Wellness</h2><span>•</span><p>Health &amp; Wellness</p></div><p><strong>Result:</strong> Modernized layout, faster load times, mobile-first experience</p></div>
+          </article>
+
+          <article class="case-study reveal">
+            <div class="comparison">
+              <figure><figcaption>Before</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/dac0e.png" alt="Atlas Freight website before redesign" /></figure>
+              <figure><figcaption class="after-label">After</figcaption><img src="https://www.figma.com/api/mcp/asset/c657e2c6-435c-4270-a2b2-b78f7397d2a1/9eebc.png" alt="Atlas Freight website after redesign" /></figure>
+            </div>
+            <div class="case-meta"><div><h2>Atlas Freight</h2><span>•</span><p>Logistics &amp; Supply Chain</p></div><p><strong>Result:</strong> Streamlined UX reduced bounce rate by 55%</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-cta section-shell section-divider" id="contact">
+        <div class="container cta-content reveal">
+          <h2>Ready to see your site transformed?</h2>
+          <p>We take your existing site and build a custom high-performance digital preview. No upfront commitment required.</p>
+          <button class="button button-primary" type="button" data-open-modal>Get Your Free Redesign Preview</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-shell">
+        <p>© <span id="year">2024</span> LT Media. All rights reserved.</p>
+        <div class="social-links" aria-label="Social links"><a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://dribbble.com" target="_blank" rel="noreferrer">Dribbble</a></div>
+      </div>
+    </footer>
+
+    <div class="modal" id="contact-modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Close contact form" data-close-modal>×</button>
+        <p class="eyebrow">Start a conversation</p><h2 id="modal-title">Tell us about your next project.</h2>
+        <form id="contact-form"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label><label>What are you building?<textarea name="message" rows="4" required></textarea></label><button class="button button-primary" type="submit">Send Enquiry</button><p class="form-status" id="form-status" role="status"></p></form>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
