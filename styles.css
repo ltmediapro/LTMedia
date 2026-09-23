@@ -14,6 +14,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+[hidden] { display: none !important; }
 body {
   margin: 0;
   background: var(--bg);
@@ -22,6 +23,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body.modal-open { overflow: hidden; }
+body.intro-active { overflow: hidden; }
+body.intro-active > .site-header,
+body.intro-active > main,
+body.intro-active > .site-footer { visibility: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
@@ -62,6 +67,44 @@ button { cursor: pointer; }
 .button-primary:hover { background: var(--purple-bright); }
 .button-secondary { border-color: var(--line); color: var(--white); }
 .button-secondary:hover { background: var(--surface-hover); border-color: #343438; }
+
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 360ms ease, visibility 360ms ease;
+}
+.intro-loader.is-exiting { opacity: 0; visibility: hidden; pointer-events: none; }
+.intro-loader__media {
+  width: min(92vw, 960px);
+  height: min(78vh, 720px);
+  display: grid;
+  place-items: center;
+}
+.intro-loader__video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.intro-skip {
+  position: absolute;
+  right: clamp(16px, 4vw, 48px);
+  bottom: clamp(16px, 4vw, 40px);
+  border: 1px solid #343434;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: rgba(10, 10, 10, 0.82);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease, border-color 180ms ease, background 180ms ease;
+}
+.intro-skip.is-ready { opacity: 1; transform: none; pointer-events: auto; }
+.intro-skip:hover { border-color: var(--purple-bright); background: rgba(124, 58, 237, 0.22); }
 
 .section-shell { position: relative; overflow: hidden; }
 .hero { min-height: 549px; display: flex; align-items: center; }

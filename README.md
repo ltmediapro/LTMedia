@@ -13,6 +13,7 @@ Open `work.html` for the Case Studies page.
 - Responsive navigation with a mobile menu.
 - Anchor navigation to Services, Process, and Contact.
 - Working contact modal with client-side success state.
+- Fullscreen LT Media intro video preloader with a one-second Skip action and session-based playback.
 - Scroll reveal animation with reduced-motion support.
 - Responsive layouts for desktop, tablet, and mobile.
 

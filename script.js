@@ -1,3 +1,66 @@
+const INTRO_STORAGE_KEY = "ltmedia-intro-seen";
+const introLoader = document.querySelector("#intro-loader");
+const introVideo = document.querySelector("#intro-video");
+const skipIntroButton = document.querySelector("#skip-intro");
+
+function hasSeenIntro() {
+  try {
+    return window.sessionStorage.getItem(INTRO_STORAGE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function markIntroSeen() {
+  try {
+    window.sessionStorage.setItem(INTRO_STORAGE_KEY, "true");
+  } catch {
+    // If storage is unavailable, the intro still completes normally.
+  }
+}
+
+function finishIntro() {
+  if (!introLoader || introLoader.classList.contains("is-exiting")) return;
+  markIntroSeen();
+  introLoader.classList.add("is-exiting");
+  window.setTimeout(() => {
+    document.body.classList.remove("intro-active");
+    introLoader.hidden = true;
+    introLoader.setAttribute("aria-hidden", "true");
+  }, 360);
+}
+
+function setupIntro() {
+  if (!introLoader || !introVideo || hasSeenIntro()) {
+    introLoader?.setAttribute("aria-hidden", "true");
+    if (introLoader) introLoader.hidden = true;
+    document.body.classList.remove("intro-active");
+    return;
+  }
+
+  introVideo.muted = true;
+  introVideo.addEventListener("ended", finishIntro, { once: true });
+  introVideo.addEventListener("error", finishIntro, { once: true });
+  skipIntroButton?.addEventListener("click", finishIntro, { once: true });
+
+  window.setTimeout(() => {
+    if (!introLoader.classList.contains("is-exiting") && skipIntroButton) {
+      skipIntroButton.hidden = false;
+      skipIntroButton.classList.add("is-ready");
+    }
+  }, 1000);
+
+  const playback = introVideo.play();
+  playback?.catch(() => {
+    if (skipIntroButton) {
+      skipIntroButton.hidden = false;
+      skipIntroButton.classList.add("is-ready");
+    }
+  });
+}
+
+setupIntro();
+
 const modal = document.querySelector("#contact-modal");
 const form = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");

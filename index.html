@@ -9,9 +9,18 @@
       content="LT Media designs high-performance websites for ambitious brands."
     />
     <title>LT Media — Websites that convert</title>
+    <link rel="preload" href="lt-media-intro.mp4" as="video" type="video/mp4" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="intro-active">
+    <div class="intro-loader" id="intro-loader" role="dialog" aria-label="LT Media intro" aria-hidden="false">
+      <div class="intro-loader__media">
+        <video class="intro-loader__video" id="intro-video" muted autoplay playsinline preload="auto">
+          <source src="lt-media-intro.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <button class="intro-skip" id="skip-intro" type="button" hidden>Skip</button>
+    </div>
     <header class="site-header">
       <div class="container nav-shell">
         <a class="brand" href="#top" aria-label="LT Media home">
