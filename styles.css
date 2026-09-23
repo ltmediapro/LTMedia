@@ -150,17 +150,17 @@ button { cursor: pointer; }
 .case-list { padding: 0 0 120px; }
 .case-study { padding: 64px 0; border-bottom: 1px solid var(--line); }
 .case-study:last-child { border-bottom: 0; }
+.case-study-heading { display: grid; gap: 12px; margin-bottom: 32px; }
+.case-study-heading h2 { margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; letter-spacing: -0.05em; }
 .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
 .comparison figure { min-width: 0; margin: 0; }
 .comparison figcaption { margin-bottom: 12px; color: var(--muted); text-transform: uppercase; font-size: 12px; font-weight: 800; }
 .comparison .after-label { color: var(--purple-bright); }
-.comparison img { display: block; width: 100%; height: 360px; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.case-meta { display: grid; gap: 8px; margin-top: 24px; }
-.case-meta > div { display: flex; align-items: center; gap: 12px; }
-.case-meta h2 { margin: 0; font-size: 20px; letter-spacing: -0.03em; }
-.case-meta span, .case-meta > div p { margin: 0; color: var(--muted); font-size: 14px; }
-.case-meta > p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
-.case-meta strong { color: var(--white); }
+.case-placeholder { width: 100%; height: 360px; border: 1px solid #3a3a40; border-radius: 8px; background: #303036; }
+.case-study-copy { max-width: 760px; margin-top: 32px; }
+.case-study-copy > p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+.case-study-copy ul { display: grid; gap: 10px; margin: 24px 0 0; padding-left: 20px; color: var(--muted-strong); font-size: 15px; line-height: 1.5; }
+.case-study-copy li::marker { color: var(--purple-bright); }
 .case-cta { border-bottom: 1px solid var(--line); }
 .case-cta .container { padding: 120px 0; }
 
@@ -215,8 +215,9 @@ input:focus, textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 3px
   .case-hero p:last-child { font-size: 17px; }
   .case-list { padding-bottom: 72px; }
   .case-study { padding: 40px 0; }
+  .case-study-heading { margin-bottom: 24px; }
   .comparison { grid-template-columns: 1fr; gap: 24px; }
-  .comparison img { height: auto; aspect-ratio: 1.72; }
-  .case-meta h2 { font-size: 18px; }
-  .case-meta > p { font-size: 14px; }
+  .case-placeholder { height: auto; aspect-ratio: 1.72; }
+  .case-study-copy { margin-top: 24px; }
+  .case-study-copy > p { font-size: 14px; }
 }
