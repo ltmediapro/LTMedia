@@ -42,7 +42,8 @@ button { cursor: pointer; }
   backdrop-filter: blur(18px);
 }
 .nav-shell { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { width: 64px; height: 48px; display: grid; place-items: center; overflow: hidden; border-radius: 4px; background: var(--purple); }
+.brand { width: 64px; height: 48px; display: grid; place-items: center; overflow: hidden; border-radius: 4px; background: var(--purple); transition: none; -webkit-tap-highlight-color: transparent; }
+.brand:hover, .brand:active, .brand:focus { background: var(--purple); box-shadow: none; filter: none; transform: none; }
 .brand-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 .brand-fallback { display: none; font-weight: 900; letter-spacing: -0.08em; font-size: 21px; }
 .site-nav { display: flex; align-items: center; gap: 32px; margin-left: auto; margin-right: 42px; color: var(--muted); font-size: 14px; font-weight: 600; }
@@ -87,25 +88,6 @@ button { cursor: pointer; }
   place-items: center;
 }
 .intro-loader__video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.intro-skip {
-  position: absolute;
-  right: clamp(16px, 4vw, 48px);
-  bottom: clamp(16px, 4vw, 40px);
-  border: 1px solid #343434;
-  border-radius: 999px;
-  padding: 10px 18px;
-  background: rgba(10, 10, 10, 0.82);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 700;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity 220ms ease, transform 220ms ease, border-color 180ms ease, background 180ms ease;
-}
-.intro-skip.is-ready { opacity: 1; transform: none; pointer-events: auto; }
-.intro-skip:hover { border-color: var(--purple-bright); background: rgba(124, 58, 237, 0.22); }
-
 .section-shell { position: relative; overflow: hidden; }
 .hero { min-height: 549px; display: flex; align-items: center; }
 .hero::before { content: ""; position: absolute; width: 680px; height: 420px; left: -180px; top: 15px; background: radial-gradient(circle, rgba(124, 58, 237, 0.16), transparent 68%); pointer-events: none; }
@@ -121,16 +103,20 @@ button { cursor: pointer; }
 .section-heading > p:last-child { max-width: 640px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
 .card-grid { display: grid; gap: 24px; }
 .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; }
-.service-card, .process-card { border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(180deg, rgba(18, 18, 19, 0.52), rgba(10, 10, 10, 0.35)); transition: border-color 180ms ease, transform 180ms ease, background 180ms ease; }
-.service-card:hover, .process-card:hover { transform: translateY(-4px); border-color: #37323f; background: var(--surface-hover); }
-.service-card { min-height: 251px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.service-card, .process-card { border: 0; border-radius: 0; background: transparent; transition: none; }
+.service-card:hover, .process-card:hover { transform: none; border-color: transparent; background: transparent; box-shadow: none; }
+.service-card { min-height: 251px; padding: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.service-card > div { margin: 32px 32px 0; }
+.service-card > ul { margin: 0 32px 32px; }
 .service-card h3, .process-card h3 { margin: 0; font-size: 20px; line-height: 1.2; letter-spacing: -0.025em; }
 .service-card p, .process-card p { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .check-list { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0; }
 .check-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; }
 .check-list li::before { content: ""; width: 14px; height: 14px; flex: 0 0 14px; background: url("https://www.figma.com/api/mcp/asset/78888e2e-4d29-40cd-aadb-a392ccfb2a48.svg") center / contain no-repeat; }
 .process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 48px; }
-.process-card { min-height: 212px; padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.process-card { min-height: 212px; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.process-card > .step-number { margin: 32px 32px 0; }
+.process-card > div { margin: 0 32px 32px; }
 .step-number { color: var(--purple-bright); font-size: 32px; font-weight: 900; letter-spacing: -0.06em; }
 .process-card h3 { font-size: 18px; }
 .cta-section .container { padding-bottom: 120px; }

@@ -1,7 +1,8 @@
 const INTRO_STORAGE_KEY = "ltmedia-intro-seen";
+const INTRO_MAX_DURATION = 4000;
 const introLoader = document.querySelector("#intro-loader");
 const introVideo = document.querySelector("#intro-video");
-const skipIntroButton = document.querySelector("#skip-intro");
+let introFinishTimer;
 
 function hasSeenIntro() {
   try {
@@ -21,6 +22,8 @@ function markIntroSeen() {
 
 function finishIntro() {
   if (!introLoader || introLoader.classList.contains("is-exiting")) return;
+  window.clearTimeout(introFinishTimer);
+  introVideo?.pause();
   markIntroSeen();
   introLoader.classList.add("is-exiting");
   window.setTimeout(() => {
@@ -41,22 +44,14 @@ function setupIntro() {
   introVideo.muted = true;
   introVideo.addEventListener("ended", finishIntro, { once: true });
   introVideo.addEventListener("error", finishIntro, { once: true });
-  skipIntroButton?.addEventListener("click", finishIntro, { once: true });
-
-  window.setTimeout(() => {
-    if (!introLoader.classList.contains("is-exiting") && skipIntroButton) {
-      skipIntroButton.hidden = false;
-      skipIntroButton.classList.add("is-ready");
-    }
-  }, 1000);
+  const stopAtLimit = () => {
+    if (introVideo.currentTime >= INTRO_MAX_DURATION / 1000) finishIntro();
+  };
+  introVideo.addEventListener("timeupdate", stopAtLimit);
+  introFinishTimer = window.setTimeout(finishIntro, INTRO_MAX_DURATION);
 
   const playback = introVideo.play();
-  playback?.catch(() => {
-    if (skipIntroButton) {
-      skipIntroButton.hidden = false;
-      skipIntroButton.classList.add("is-ready");
-    }
-  });
+  playback?.catch(finishIntro);
 }
 
 setupIntro();
