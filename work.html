@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="intro-active">
+    <div class="background-layer" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
     <div class="intro-loader" id="intro-loader" role="dialog" aria-label="LT Media intro" aria-hidden="false">
       <div class="intro-loader__media">
         <video class="intro-loader__video" id="intro-video" muted autoplay playsinline preload="auto">
@@ -110,6 +112,7 @@
         <form id="contact-form"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label><label>What are you building?<textarea name="message" rows="4" required></textarea></label><button class="button button-primary" type="submit">Send Enquiry</button><p class="form-status" id="form-status" role="status"></p></form>
       </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
