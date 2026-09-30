@@ -56,6 +56,28 @@ function setupIntro() {
 
 setupIntro();
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const lenis = !prefersReducedMotion.matches && window.Lenis
+  ? new window.Lenis({ anchors: true })
+  : null;
+
+if (lenis) {
+  function raf(time) {
+    lenis.raf(time);
+    window.requestAnimationFrame(raf);
+  }
+
+  window.requestAnimationFrame(raf);
+}
+
+const cursorGlow = document.querySelector(".cursor-glow");
+if (cursorGlow && !prefersReducedMotion.matches && window.matchMedia("(hover: hover)").matches) {
+  document.addEventListener("mousemove", (event) => {
+    cursorGlow.style.left = `${event.clientX}px`;
+    cursorGlow.style.top = `${event.clientY}px`;
+  }, { passive: true });
+}
+
 const modal = document.querySelector("#contact-modal");
 const form = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
