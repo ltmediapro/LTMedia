@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="intro-active">
+    <div class="background-layer" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
     <div class="intro-loader" id="intro-loader" role="dialog" aria-label="LT Media intro" aria-hidden="false">
       <div class="intro-loader__media">
         <video class="intro-loader__video" id="intro-video" muted autoplay playsinline preload="auto">
@@ -187,6 +189,7 @@
       </section>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
