@@ -46,6 +46,7 @@ function finishIntro(reason = "complete") {
     unlockScroll();
     introLoader.hidden = true;
     introLoader.setAttribute("aria-hidden", "true");
+    introLoader.remove();
   }, 360);
 }
 
